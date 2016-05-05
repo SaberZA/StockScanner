@@ -47,6 +47,10 @@ namespace NaaStockTrader.Droid
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::NaaStockTrader.Droid.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::NaaStockTrader.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::NaaStockTrader.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::PCLStorage.Resource.String.ApplicationName = global::NaaStockTrader.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::NaaStockTrader.Droid.Resource.String.Hello;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::NaaStockTrader.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::NaaStockTrader.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -105,14 +109,20 @@ namespace NaaStockTrader.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int MvvmCrossTagId = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int MvvmCrossTagId = 2131034112;
 			
-			// aapt resource value: 0x7f040001
-			public const int MvxBindingTagUnique = 2130968577;
+			// aapt resource value: 0x7f050001
+			public const int MvxBindingTagUnique = 2131034113;
 			
-			// aapt resource value: 0x7f040002
-			public const int MyButton = 2130968578;
+			// aapt resource value: 0x7f050003
+			public const int MyButton = 2131034115;
+			
+			// aapt resource value: 0x7f050002
+			public const int button1 = 2131034114;
+			
+			// aapt resource value: 0x7f050004
+			public const int editText1 = 2131034116;
 			
 			static Id()
 			{
@@ -134,7 +144,13 @@ namespace NaaStockTrader.Droid
 			public const int Main = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int SplashScreen = 2130903042;
+			public const int ReadyToScanView = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int ScanConfirmationView = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int SplashScreen = 2130903044;
 			
 			static Layout()
 			{
@@ -149,11 +165,11 @@ namespace NaaStockTrader.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060001
-			public const int ApplicationName = 2131099649;
+			// aapt resource value: 0x7f040001
+			public const int ApplicationName = 2130968577;
 			
-			// aapt resource value: 0x7f060000
-			public const int Hello = 2131099648;
+			// aapt resource value: 0x7f040000
+			public const int Hello = 2130968576;
 			
 			static String()
 			{
@@ -168,8 +184,8 @@ namespace NaaStockTrader.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int Theme_Splash = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int Theme_Splash = 2131099648;
 			
 			static Style()
 			{

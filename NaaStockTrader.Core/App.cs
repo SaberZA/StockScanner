@@ -1,4 +1,6 @@
+using System;
 using MvvmCross.Platform.IoC;
+using NaaStockTrader.Core.Services.Sql;
 
 namespace NaaStockTrader.Core
 {
@@ -9,9 +11,10 @@ namespace NaaStockTrader.Core
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()
-                .RegisterAsLazySingleton();
+                .RegisterAsLazySingleton();              
 
             RegisterAppStart<ViewModels.FirstViewModel>();
         }
+        
     }
 }
