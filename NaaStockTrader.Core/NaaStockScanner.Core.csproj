@@ -38,6 +38,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Interfaces\StockItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Csv\CoreCsvService.cs" />
+    <Compile Include="Services\Csv\ICsvService.cs" />
     <Compile Include="Services\Sql\IStockRepository.cs" />
     <Compile Include="Services\Sql\SqliteRepository.cs" />
     <Compile Include="Services\Sql\StockRepository.cs" />

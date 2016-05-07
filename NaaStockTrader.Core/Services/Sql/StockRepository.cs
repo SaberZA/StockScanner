@@ -16,27 +16,53 @@ namespace NaaStockTrader.Core.Services.Sql
 
         public int CreateTable()
         {
-            return CreateTable<StockItem>();
+            return base.CreateTable<StockItem>();
         }
 
         public int Delete(StockItem objectToDelete)
         {
-            return Delete(objectToDelete);
+            return base.Delete(objectToDelete);
         }
 
         public int DropTable()
         {
-            return DropTable<StockItem>();
+            return base.DropTable<StockItem>();
         }
 
         public int Insert(StockItem obj)
         {
-            return Insert(obj);
+            return base.Insert(obj);
         }
 
         public List<StockItem> Query(string query, params object[] args)
         {
-            return Query(query, args);
+            return base.Query<StockItem>(query, args);
         }
+
+        public void SeedStockItems(List<StockItem> stockItems)
+        {
+            //TODO: Should actually get the diff and add new items to db
+            var stockItemsInDb = Query("select StockCode,BarCode,StockDescription,StockQuantity,DateUpdated from StockItem");
+            if (!stockItemsInDb.Any())
+            {
+                StringBuilder sb = new StringBuilder();
+                var result = GetConnection().InsertAll(stockItems);
+                //foreach (var item in stockItems)
+                //{
+                //    var rowsInserted = Insert(item);
+
+                    //sb.AppendLine(string.Format("INSERT INTO StockItem (StockCode,BarCode,StockDescription,StockQuantity,DateUpdated) VALUES ('{0}','{1}','{2}','{3}','{4}');",
+                    //    item.StockCode,
+                    //    item.BarCode,
+                    //    item.StockDescription,
+                    //    item.StockQuantity,
+                    //    item.DateTimeSQLite(DateTime.Now)));
+                //}
+                //base.Execute(sb.ToString());
+
+            }
+        }
+
+        
     }
 }

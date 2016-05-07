@@ -13,7 +13,7 @@ namespace NaaStockTrader.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();              
 
-            RegisterAppStart<ViewModels.FirstViewModel>();
+            RegisterAppStart<ViewModels.ReadyToScanViewModel>();
         }
         
     }

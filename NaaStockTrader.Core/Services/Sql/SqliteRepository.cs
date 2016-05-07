@@ -14,6 +14,7 @@ namespace NaaStockTrader.Core.Services.Sql
         int DropTable();
         int Delete(T objectToDelete);
         List<T> Query(string query, params object[] args);
+        int Execute(string query, params object[] args);
     }
 
     public interface ISqlTable
@@ -121,6 +122,15 @@ namespace NaaStockTrader.Core.Services.Sql
             using (sqLiteConnection)
             {
                 return sqLiteConnection.Query<T>(query, args);
+            }
+        }
+
+        public int Execute(string query, params object[] args)
+        {
+            var sqLiteConnection = GetConnection();
+            using (sqLiteConnection)
+            {
+                return sqLiteConnection.Execute(query, args);
             }
         }
     }    

@@ -102,12 +102,15 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Csv\CsvContentService.cs" />
+    <Compile Include="Services\Csv\ICsvContentService.cs" />
     <Compile Include="Services\Sqlite\SqLiteConnectionAndroid.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Views\FirstView.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Stock.csv" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
@@ -143,9 +146,9 @@
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NaaStockTrader.Core\NaaStockTrader.Core.csproj">
+    <ProjectReference Include="..\NaaStockTrader.Core\NaaStockScanner.Core.csproj">
       <Project>{33574d59-bb64-47b7-87d2-e0cc6a7b371f}</Project>
-      <Name>NaaStockTrader.Core</Name>
+      <Name>NaaStockScanner.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
