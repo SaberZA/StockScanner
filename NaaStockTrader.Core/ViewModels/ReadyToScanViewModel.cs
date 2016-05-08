@@ -18,6 +18,11 @@ namespace NaaStockTrader.Core.ViewModels
             ScanComplete = new ScanCompleteCommand(this);
         }
 
+        public void Init()
+        {
+            _stockId = "";
+        }
+
         private string _stockId = "";
         public string StockId
         {
@@ -26,7 +31,16 @@ namespace NaaStockTrader.Core.ViewModels
             {
                 if (value.Contains(Environment.NewLine))    
                 {
-                    ScanComplete.Execute(new StockIdParameter() { StockId = _stockId });
+                    if (_stockId == "")
+                    {
+                        _stockId = value.Replace(Environment.NewLine, "");
+                    }
+
+                    if (!string.IsNullOrEmpty(_stockId))
+                    {
+                        ScanComplete.Execute(new StockIdParameter() { StockId = _stockId });
+                    }
+                    
                 }
                 else
                 {

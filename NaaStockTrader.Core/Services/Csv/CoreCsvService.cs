@@ -22,9 +22,16 @@ namespace NaaStockTrader.Core.Services.Csv
         {
             var lines = _stockContent.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
             int dataItemCount = lines.Count() - 1;
+            var headerLine = lines.First().ToLower();
             var dataLines = lines.Skip(1).ToList();
 
             var stockItems = new List<StockItem>();
+
+            var headerProperties = headerLine.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+            //var stockCodeIndex = headerProperties.First(p => p == "stock code");
+            //var barCodeIndex = headerProperties.First(p => p == "bar code");
+            //var stockDescriptionIndex = headerProperties.First(p => p == "stock description");
+            //var quantityIndex = headerProperties.First(p => p == "count");
 
             foreach (var stockLine in dataLines)
             {

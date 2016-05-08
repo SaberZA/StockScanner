@@ -33,4 +33,14 @@ namespace NaaStockTrader.Droid.Views
             SetContentView(Resource.Layout.ScanConfirmationView);
         }
     }
+
+    [Activity(Label = "View for CaptureStockQuantityView")]
+    public class CaptureStockQuantityView : MvxActivity
+    {
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.CaptureStockQuantityView);
+        }
+    }
 }

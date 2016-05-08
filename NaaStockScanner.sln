@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Droid", "1. Droid", "{FE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Service", "2. Service", "{C8D3301C-C70F-483D-9C58-B1C56C82A37B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaaStockScanner.CsvService", "NaaStockScanner.CsvService\NaaStockScanner.CsvService.csproj", "{9AE5DD8D-BD06-4BC2-856F-F473911E26A2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +29,6 @@ Global
 		{33574D59-BB64-47B7-87D2-E0CC6A7B371F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33574D59-BB64-47B7-87D2-E0CC6A7B371F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33574D59-BB64-47B7-87D2-E0CC6A7B371F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9AE5DD8D-BD06-4BC2-856F-F473911E26A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AE5DD8D-BD06-4BC2-856F-F473911E26A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AE5DD8D-BD06-4BC2-856F-F473911E26A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AE5DD8D-BD06-4BC2-856F-F473911E26A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +36,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B11ABE67-9C05-4DAE-B081-E4B4211B4BAE} = {FE9D379F-D278-420D-AE16-BFF13FF34800}
 		{33574D59-BB64-47B7-87D2-E0CC6A7B371F} = {DDC2A324-621B-4AC7-B0CE-0C529A587C33}
-		{9AE5DD8D-BD06-4BC2-856F-F473911E26A2} = {C8D3301C-C70F-483D-9C58-B1C56C82A37B}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Stock Description"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/textView1"
+        android:textSize="30dp"
+        local:MvxBind="Text StockDescription"
+        android:gravity="center" />
+    <TextView
+        android:text="Quantity:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="30dp"
+        android:gravity="center_horizontal" />
+    <TextView
+        android:text="Amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textSize="45dp"
+        local:MvxBind="Text Quantity"
+        android:gravity="center_horizontal" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/linearLayout2">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout3"
+            android:gravity="center_horizontal">
+            <Button
+                android:text="1"
+                android:id="@+id/button3"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='1'"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:text="2"
+                android:id="@+id/button4"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='2'"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:text="3"
+                android:id="@+id/button5"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='3'"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout4"
+            android:gravity="center_horizontal">
+            <Button
+                android:text="4"
+                android:id="@+id/button6"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='4'"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:text="5"
+                android:id="@+id/button7"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='5'"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:text="6"
+                android:id="@+id/button8"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='6'"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout5"
+            android:gravity="center_horizontal">
+            <Button
+                android:text="7"
+                android:id="@+id/button9"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='7'"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:text="8"
+                android:id="@+id/button10"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='8'"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:text="9"
+                android:id="@+id/button11"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='9'"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout6"
+            android:gravity="center_horizontal">
+            <Button
+                android:text="0"
+                android:id="@+id/button12"
+                local:MvxBind="Click UpdateQuantity, CommandParameter='0'"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Space
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:id="@+id/space1" />
+            <Button
+                android:text="&lt; X"
+                local:MvxBind="Click CorrectQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/button13" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp">
+        <Button
+            android:text="Confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/button1"
+            android:background="@android:color/holo_green_dark"
+            local:MvxBind="Click ConfirmQuantity"
+            android:layout_marginRight="30dp" />
+        <Button
+            android:text="Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/button2"
+            local:MvxBind="Click CancelQuantity"
+            android:background="@android:color/holo_red_dark" />
+    </LinearLayout>
+</LinearLayout>

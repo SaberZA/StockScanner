@@ -4,7 +4,7 @@ using NaaStockTrader.Core._base;
 
 namespace NaaStockTrader.Core.ViewModels
 {
-    internal class ScanCompleteCommand : MCommand
+    public class ScanCompleteCommand : MCommand
     {
         private IMViewModel _viewModel;
 

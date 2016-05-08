@@ -43,15 +43,20 @@
     <Compile Include="Services\Sql\IStockRepository.cs" />
     <Compile Include="Services\Sql\SqliteRepository.cs" />
     <Compile Include="Services\Sql\StockRepository.cs" />
+    <Compile Include="Commands\CancelQuantityCommand.cs" />
     <Compile Include="ViewModels\CaptureStockQuantityViewModel.cs" />
-    <Compile Include="ViewModels\CheckDatabaseCommand.cs" />
+    <Compile Include="Commands\ConfirmScanCommand.cs" />
+    <Compile Include="Commands\ConfirmQuantityCommand.cs" />
+    <Compile Include="Commands\CorrectQuantityCommand.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="ViewModels\MissingBarcodeViewModel.cs" />
     <Compile Include="ViewModels\ReadyToScanViewModel.cs" />
     <Compile Include="Commands\ScanCommand.cs" />
     <Compile Include="Commands\ScanCompleteCommand.cs" />
+    <Compile Include="Commands\RejectScanCommand.cs" />
     <Compile Include="ViewModels\ScanConfirmationViewModel.cs" />
     <Compile Include="Interfaces\StockIdParameter.cs" />
+    <Compile Include="Commands\UpdateQuantityCommand.cs" />
     <Compile Include="_base\MCommand.cs" />
     <Compile Include="_base\MViewModel.cs" />
   </ItemGroup>

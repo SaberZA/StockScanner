@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NaaStockTrader.Droid</RootNamespace>
-    <AssemblyName>NaaStockTrader.Droid</AssemblyName>
+    <AssemblyName>NaaStockScanner</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
@@ -107,6 +107,7 @@
     <Compile Include="Services\Sqlite\SqLiteConnectionAndroid.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="ValueConverters\NumberValueConverter.cs" />
     <Compile Include="Views\FirstView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +122,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ScanConfirmationView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CaptureStockQuantityView.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
