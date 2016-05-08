@@ -1,4 +1,4 @@
-﻿namespace NaaStockTrader.Core.Interfaces
+﻿namespace NaaStockScanner.Core.Interfaces
 {
     public class StockIdParameter
     {        

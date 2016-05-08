@@ -2,7 +2,7 @@ using Android.App;
 using Android.OS;
 using MvvmCross.Droid.Views;
 
-namespace NaaStockTrader.Droid.Views
+namespace NaaStockScanner.Droid.Views
 {
     [Activity(Label = "View for FirstViewModel")]
     public class FirstView : MvxActivity

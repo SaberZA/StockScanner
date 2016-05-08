@@ -1,8 +1,8 @@
 ﻿using System;
-using NaaStockTrader.Core._base;
-using NaaStockTrader.Core.Interfaces;
+using NaaStockScanner.Core._base;
+using NaaStockScanner.Core.Interfaces;
 
-namespace NaaStockTrader.Core.ViewModels
+namespace NaaStockScanner.Core.ViewModels
 {
     public class ConfirmScanCommand : MCommand
     {

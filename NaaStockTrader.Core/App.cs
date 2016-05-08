@@ -1,8 +1,8 @@
 using System;
 using MvvmCross.Platform.IoC;
-using NaaStockTrader.Core.Services.Sql;
+using NaaStockScanner.Core.Services.Sql;
 
-namespace NaaStockTrader.Core
+namespace NaaStockScanner.Core
 {
     public class App : MvvmCross.Core.ViewModels.MvxApplication
     {

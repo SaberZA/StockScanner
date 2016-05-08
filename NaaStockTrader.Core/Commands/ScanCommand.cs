@@ -1,7 +1,7 @@
 ﻿using System;
 using MvvmCross.Core.ViewModels;
 
-namespace NaaStockTrader.Core.ViewModels
+namespace NaaStockScanner.Core.ViewModels
 {
     public class ScanCommand : IMvxCommand
     {

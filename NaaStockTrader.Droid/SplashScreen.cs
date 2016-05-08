@@ -2,10 +2,10 @@ using Android.App;
 using Android.Content.PM;
 using MvvmCross.Droid.Views;
 
-namespace NaaStockTrader.Droid
+namespace NaaStockScanner.Droid
 {
     [Activity(
-        Label = "NaaStockTrader.Droid"
+        Label = "NaaStockScanner.Droid"
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"

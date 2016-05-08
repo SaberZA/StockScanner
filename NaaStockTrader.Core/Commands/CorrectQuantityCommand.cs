@@ -1,7 +1,7 @@
 ﻿using System;
-using NaaStockTrader.Core._base;
+using NaaStockScanner.Core._base;
 
-namespace NaaStockTrader.Core.ViewModels
+namespace NaaStockScanner.Core.ViewModels
 {
     internal class CorrectQuantityCommand : MCommand
     {
@@ -19,6 +19,10 @@ namespace NaaStockTrader.Core.ViewModels
 
         public override void Execute(object parameter)
         {
+            if (string.IsNullOrEmpty(captureStockQuantityViewModel.Quantity))
+            {
+                return;
+            }
             captureStockQuantityViewModel.Quantity = captureStockQuantityViewModel.Quantity.Substring(0, captureStockQuantityViewModel.Quantity.Length - 1);
         }
     }

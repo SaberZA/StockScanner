@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NaaStockTrader.Core._base
+namespace NaaStockScanner.Core._base
 {
     public abstract class MCommand : IMCommand
     {

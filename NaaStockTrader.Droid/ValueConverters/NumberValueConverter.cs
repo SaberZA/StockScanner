@@ -12,7 +12,7 @@ using Android.Views;
 using Android.Widget;
 using MvvmCross.Platform.Converters;
 
-namespace NaaStockTrader.Droid.ValueConverters
+namespace NaaStockScanner.Droid.ValueConverters
 {
     public class NumberValueConverter : MvxValueConverter<string,int>
     {

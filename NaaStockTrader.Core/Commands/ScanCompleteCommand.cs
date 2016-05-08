@@ -1,8 +1,8 @@
 ﻿using System;
 using MvvmCross.Core.ViewModels;
-using NaaStockTrader.Core._base;
+using NaaStockScanner.Core._base;
 
-namespace NaaStockTrader.Core.ViewModels
+namespace NaaStockScanner.Core.ViewModels
 {
     public class ScanCompleteCommand : MCommand
     {

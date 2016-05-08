@@ -1,7 +1,7 @@
-﻿using NaaStockTrader.Core.Interfaces;
+﻿using NaaStockScanner.Core.Interfaces;
 using System.Collections.Generic;
 
-namespace NaaStockTrader.Core.Services.Sql
+namespace NaaStockScanner.Core.Services.Sql
 {
     public interface IStockRepository : IRepository<StockItem>
     {

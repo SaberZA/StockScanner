@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using System.IO;
 
-namespace NaaStockTrader.Droid.Services.Csv
+namespace NaaStockScanner.Droid.Services.Csv
 {
     public class CsvContentService : ICsvContentService
     {

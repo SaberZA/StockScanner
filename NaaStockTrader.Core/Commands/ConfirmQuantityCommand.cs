@@ -1,8 +1,8 @@
 ﻿using System;
-using NaaStockTrader.Core._base;
-using NaaStockTrader.Core.Services.Sql;
+using NaaStockScanner.Core._base;
+using NaaStockScanner.Core.Services.Sql;
 
-namespace NaaStockTrader.Core.ViewModels
+namespace NaaStockScanner.Core.ViewModels
 {
     public class ConfirmQuantityCommand : MCommand
     {
@@ -23,7 +23,7 @@ namespace NaaStockTrader.Core.ViewModels
         public override void Execute(object parameter)
         {
             stockRepository.Execute("Update StockItem Set StockQuantity = ? Where StockCode = ? Or BarCode = ?", 
-                Int32.Parse(captureStockQuantityViewModel.Quantity), 
+                Int32.Parse(string.IsNullOrEmpty(captureStockQuantityViewModel.Quantity) ? "0" : captureStockQuantityViewModel.Quantity), 
                 captureStockQuantityViewModel.StockId, 
                 captureStockQuantityViewModel.StockId);
 

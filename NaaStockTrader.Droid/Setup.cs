@@ -2,14 +2,14 @@ using Android.Content;
 using MvvmCross.Droid.Platform;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform.Platform;
-using NaaStockTrader.Droid.Services.Sqlite;
+using NaaStockScanner.Droid.Services.Sqlite;
 using MvvmCross.Platform;
-using NaaStockTrader.Core.Services.Sql;
-using NaaStockTrader.Core.Services.Csv;
+using NaaStockScanner.Core.Services.Sql;
+using NaaStockScanner.Core.Services.Csv;
 using System.IO;
-using NaaStockTrader.Core.Interfaces;
+using NaaStockScanner.Core.Interfaces;
 
-namespace NaaStockTrader.Droid
+namespace NaaStockScanner.Droid
 {
     public class Setup : MvxAndroidSetup
     {

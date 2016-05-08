@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NaaStockTrader.Core
+namespace NaaStockScanner.Core
 {
     public interface IMViewModel
     {

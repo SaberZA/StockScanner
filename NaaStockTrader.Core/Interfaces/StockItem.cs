@@ -1,4 +1,4 @@
-﻿using NaaStockTrader.Core.Services.Sql;
+﻿using NaaStockScanner.Core.Services.Sql;
 using SQLite.Net.Attributes;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NaaStockTrader.Core.Interfaces
+namespace NaaStockScanner.Core.Interfaces
 {
     public class StockItem : ISqlTable
     {

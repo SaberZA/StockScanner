@@ -1,6 +1,6 @@
 using MvvmCross.Core.ViewModels;
 
-namespace NaaStockTrader.Core.ViewModels
+namespace NaaStockScanner.Core.ViewModels
 {
     public class FirstViewModel 
         : MViewModel

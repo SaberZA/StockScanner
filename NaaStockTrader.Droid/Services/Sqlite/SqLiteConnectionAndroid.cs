@@ -9,13 +9,13 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using NaaStockTrader.Core.Services.Sql;
+using NaaStockScanner.Core.Services.Sql;
 using SQLite.Net;
 using PCLStorage;
 using System.IO;
 using SQLite.Net.Platform.XamarinAndroid;
 
-namespace NaaStockTrader.Droid.Services.Sqlite
+namespace NaaStockScanner.Droid.Services.Sqlite
 {
     public class SQLiteConnectionAndroid : ISQLiteConnection
     {

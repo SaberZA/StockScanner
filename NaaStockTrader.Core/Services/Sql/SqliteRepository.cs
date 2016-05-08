@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NaaStockTrader.Core.Services.Sql
+namespace NaaStockScanner.Core.Services.Sql
 {
     public interface IRepository<T>
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NaaStockTrader.Core.Interfaces;
+using NaaStockScanner.Core.Interfaces;
 
-namespace NaaStockTrader.Core.Services.Sql
+namespace NaaStockScanner.Core.Services.Sql
 {
     public class StockRepository : SQLiteRepository, IStockRepository
     {

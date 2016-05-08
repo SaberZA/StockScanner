@@ -1,13 +1,13 @@
-﻿using NaaStockTrader.Core._base;
-using NaaStockTrader.Core.Interfaces;
-using NaaStockTrader.Core.Services.Sql;
+﻿using NaaStockScanner.Core._base;
+using NaaStockScanner.Core.Interfaces;
+using NaaStockScanner.Core.Services.Sql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NaaStockTrader.Core.ViewModels
+namespace NaaStockScanner.Core.ViewModels
 {
     public class CaptureStockQuantityViewModel : MViewModel
     {
