@@ -2,6 +2,8 @@
 using NaaStockScanner.Core;
 using NaaStockScanner.Core._base;
 using NaaStockScanner.Core.Interfaces;
+using NaaStockScanner.Core.Services.Sql;
+using NaaStockTrader.Core.Services.ExportData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +15,10 @@ namespace NaaStockScanner.Core.ViewModels
 {
     public class ReadyToScanViewModel : MViewModel
     {
-        public ReadyToScanViewModel()
+        public ReadyToScanViewModel(IExportDataService exportDataService, IStockRepository stockRepository)
         {
             ScanComplete = new ScanCompleteCommand(this);
+            ExportData = new ExportDataCommand(this, exportDataService, stockRepository);
         }
 
         public void Init()
@@ -50,6 +53,7 @@ namespace NaaStockScanner.Core.ViewModels
         }
 
         public IMCommand ScanComplete { get; set; }
+        public IMCommand ExportData { get; set; }
     }   
 
 

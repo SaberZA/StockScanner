@@ -8,12 +8,14 @@ using NaaStockScanner.Core.Services.Sql;
 using NaaStockScanner.Core.Services.Csv;
 using System.IO;
 using NaaStockScanner.Core.Interfaces;
+using NaaStockTrader.Core.Services.ExportData;
 
 namespace NaaStockScanner.Droid
 {
     public class Setup : MvxAndroidSetup
     {
         private string stockContent;
+        private DroidDataExportService _exportDataService;
 
         public Setup(Context applicationContext) : base(applicationContext)
         {
@@ -22,7 +24,8 @@ namespace NaaStockScanner.Droid
             using (StreamReader sr = new StreamReader(stream))
             {
                 stockContent = sr.ReadToEnd();
-            }            
+            }
+            _exportDataService = new DroidDataExportService(applicationContext);
         }
 
         protected override IMvxApplication CreateApp()
@@ -37,8 +40,10 @@ namespace NaaStockScanner.Droid
 
             var csvService = new CoreCsvService(stockContent);
             var stockRepository = new StockRepository(sqLiteConnectionAndroid);
+            
             stockRepository.SeedStockItems(csvService.GetRecords());
 
+            Mvx.RegisterType<IExportDataService>(() => _exportDataService);
             Mvx.RegisterType<ICsvService>(() => new CoreCsvService(stockContent));
             Mvx.RegisterType<ISQLiteConnection>(() => sqLiteConnectionAndroid);
             Mvx.RegisterType<IStockRepository>(() => stockRepository);            
