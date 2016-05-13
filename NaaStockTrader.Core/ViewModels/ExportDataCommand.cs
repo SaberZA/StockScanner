@@ -26,7 +26,7 @@ namespace NaaStockScanner.Core.ViewModels
 
         public override void Execute(object parameter)
         {
-            var stockItems = stockRepository.Query("Select * from StockItem");
+            var stockItems = stockRepository.Query("Select StockCode,BarCode,StockDescription,StockQuantity,DateUpdated from StockItem WHERE StockQuantity > 0");
             exportDataService.SaveCsvToDevice(stockItems);
         }
     }
