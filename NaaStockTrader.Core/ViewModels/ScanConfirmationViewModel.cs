@@ -30,9 +30,9 @@ namespace NaaStockScanner.Core.ViewModels
 
             try
             {
-                var allStockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockQuantity, DateUpdated from StockItem");
+                //var allStockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockQuantity, DateUpdated from StockItem");
 
-                var stockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockQuantity, DateUpdated from StockItem where StockCode = ? OR BarCode = ?", StockId, StockId);
+                var stockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockPrice, StockQuantity, DateUpdated from StockItem where StockCode = ? OR BarCode = ?", StockId, StockId);
 
                 if (stockItems.Any())
                 {

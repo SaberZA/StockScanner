@@ -24,7 +24,8 @@ namespace NaaStockScanner.Core.ViewModels
                 new StockIdParameter() {
                     StockId = _senderViewModel.StockId,
                     StockDescription = _senderViewModel.CurrentStockItem.StockDescription,
-                    StockQuantity = _senderViewModel.CurrentStockItem.StockQuantity
+                    StockQuantity = _senderViewModel.CurrentStockItem.StockQuantity,
+                    StockPrice = _senderViewModel.CurrentStockItem.StockPrice
                 }
             );
         }

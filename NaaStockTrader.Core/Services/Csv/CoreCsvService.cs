@@ -36,12 +36,31 @@ namespace NaaStockScanner.Core.Services.Csv
             foreach (var stockLine in dataLines)
             {
                 var stockProperties = stockLine.Split(new[] { ";" },StringSplitOptions.None);
+
+                var stockQuantityIndex = 4;
+                var stockPrice = string.IsNullOrEmpty(stockProperties[3]) ? "0" : stockProperties[3].Trim();
+                // There is a formatted currency
+                if (stockProperties.Length > 5)
+                {
+                    stockPrice = (stockProperties[3] + stockProperties[4]).Trim();
+                    stockPrice = stockPrice.Substring(1, stockPrice.Length - 2);
+
+                    stockQuantityIndex = 5;
+                }
+
+                
+                if (stockPrice.StartsWith("R"))
+                {
+                    stockPrice = stockPrice.Substring(1).Trim();
+                }
+
                 var stockItem = new StockItem()
                 {
                     StockCode = stockProperties[0],
                     BarCode = stockProperties[1],
                     StockDescription = stockProperties[2],
-                    StockQuantity = Int32.Parse(string.IsNullOrEmpty(stockProperties[3]) ? "0" : stockProperties[3])
+                    StockPrice = stockPrice,
+                    StockQuantity = Int32.Parse(string.IsNullOrEmpty(stockProperties[stockQuantityIndex]) ? "0" : stockProperties[stockQuantityIndex])
                 };
 
                 stockItems.Add(stockItem);

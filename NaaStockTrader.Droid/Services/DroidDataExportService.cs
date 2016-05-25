@@ -22,10 +22,10 @@ namespace NaaStockScanner.Droid
         public void SaveCsvToDevice(List<StockItem> stockItems)
         {
             var sb = new StringBuilder();
-            sb.AppendLine("Stock Code;Bar Code;Stock Description;Count;Date Updated");
+            sb.AppendLine("Stock Code,Bar Code,Stock Description,Retail Price Incl.,Count,Date Updated");
             foreach (var item in stockItems)
             {
-                sb.AppendLine(string.Format("{0};{1};{2};{3};{4}", item.StockCode, item.BarCode, item.StockDescription, item.StockQuantity, item.DateUpdated));
+                sb.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}", item.StockCode, item.BarCode, item.StockDescription, item.StockPrice,item.StockQuantity, item.DateUpdated));
             }
             SaveCsvToDevice(sb.ToString());
         }

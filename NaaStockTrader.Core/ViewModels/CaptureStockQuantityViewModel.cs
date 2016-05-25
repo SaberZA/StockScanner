@@ -39,10 +39,24 @@ namespace NaaStockScanner.Core.ViewModels
             }
         }
 
+        private string _stockPrice;
+        public string StockPrice
+        {
+            get
+            {
+                return _stockPrice;
+            }
+            set
+            {
+                SetProperty(ref _stockPrice, value);
+            }
+        }
+
         public void Init(StockIdParameter stockIdParameter)
         {
             this.StockId = stockIdParameter.StockId;
             this.StockDescription = stockIdParameter.StockDescription;
+            this.StockPrice = stockIdParameter.StockPrice;
 
             if (stockIdParameter.StockQuantity > 0)
             {

@@ -21,6 +21,8 @@ namespace NaaStockScanner.Core.Interfaces
 
         public int StockQuantity { get; set; }
 
+        public string StockPrice { get; set; }
+
         //("YYYY-MM-DD HH:MM:SS.SSS")  
         private string _dateUpdated;      
         public string DateUpdated

@@ -24,6 +24,7 @@ namespace NaaStockScanner.Core.ViewModels
         public void Init()
         {
             _stockId = "";
+            SetProperty(ref _stockId, "");
         }
 
         private string _stockId = "";

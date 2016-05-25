@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Stock.csv" />
+    <AndroidAsset Include="Assets\Stock20160525.csv" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
@@ -148,6 +149,7 @@
     <Content Include="lib\PCLStorage.dll" />
     <Content Include="lib\SQLite.Net.dll" />
     <Content Include="lib\SQLite.Net.Platform.XamarinAndroid.dll" />
+    <AndroidResource Include="Resources\drawable\backspace.png" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>

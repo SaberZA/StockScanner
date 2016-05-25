@@ -19,7 +19,7 @@ namespace NaaStockScanner.Droid
 
         public Setup(Context applicationContext) : base(applicationContext)
         {
-            var stream = applicationContext.Assets.Open("Stock.csv");
+            var stream = applicationContext.Assets.Open("Stock20160525.csv");
             
             using (StreamReader sr = new StreamReader(stream))
             {
