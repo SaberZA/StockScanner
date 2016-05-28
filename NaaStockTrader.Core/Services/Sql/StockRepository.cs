@@ -16,6 +16,7 @@ namespace NaaStockScanner.Core.Services.Sql
 
         public int CreateTable()
         {
+
             return base.CreateTable<StockItem>();
         }
 

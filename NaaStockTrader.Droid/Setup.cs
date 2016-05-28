@@ -9,6 +9,8 @@ using NaaStockScanner.Core.Services.Csv;
 using System.IO;
 using NaaStockScanner.Core.Interfaces;
 using NaaStockTrader.Core.Services.ExportData;
+using NaaStockTrader.Core.Services.Keyboard;
+using NaaStockScanner.Droid.Services.KeyboardService;
 
 namespace NaaStockScanner.Droid
 {
@@ -17,7 +19,8 @@ namespace NaaStockScanner.Droid
         private string stockContent;
         private DroidDataExportService _exportDataService;
 
-        public Setup(Context applicationContext) : base(applicationContext)
+        public Setup(Context applicationContext) 
+            : base(applicationContext)
         {
             var stream = applicationContext.Assets.Open("Stock20160525.csv");
             
@@ -43,6 +46,7 @@ namespace NaaStockScanner.Droid
             
             stockRepository.SeedStockItems(csvService.GetRecords());
 
+            Mvx.RegisterType<IKeyboardService>(() => new DroidKeyboardService());
             Mvx.RegisterType<IExportDataService>(() => _exportDataService);
             Mvx.RegisterType<ICsvService>(() => new CoreCsvService(stockContent));
             Mvx.RegisterType<ISQLiteConnection>(() => sqLiteConnectionAndroid);

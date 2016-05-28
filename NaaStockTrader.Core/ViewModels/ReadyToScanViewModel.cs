@@ -4,6 +4,7 @@ using NaaStockScanner.Core._base;
 using NaaStockScanner.Core.Interfaces;
 using NaaStockScanner.Core.Services.Sql;
 using NaaStockTrader.Core.Services.ExportData;
+using NaaStockTrader.Core.Services.Keyboard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,13 @@ using System.Threading.Tasks;
 
 namespace NaaStockScanner.Core.ViewModels
 {
-    public class ReadyToScanViewModel : MViewModel
+    public class ReadyToScanViewModel : MViewModel, IContext
     {
-        public ReadyToScanViewModel(IExportDataService exportDataService, IStockRepository stockRepository)
+        public ReadyToScanViewModel(IExportDataService exportDataService, IStockRepository stockRepository, IKeyboardService keyboardService)
         {
             ScanComplete = new ScanCompleteCommand(this);
             ExportData = new ExportDataCommand(this, exportDataService, stockRepository);
+            ShowKeyboard = new ShowKeyboardCommand(this, keyboardService);
         }
 
         public void Init()
@@ -55,6 +57,12 @@ namespace NaaStockScanner.Core.ViewModels
 
         public IMCommand ScanComplete { get; set; }
         public IMCommand ExportData { get; set; }
+        public IMCommand ShowKeyboard { get; set; }
+
+        public dynamic Context
+        {
+            get; set;
+        }
     }   
 
 

@@ -41,6 +41,7 @@
     <Compile Include="Services\Csv\CoreCsvService.cs" />
     <Compile Include="Services\Csv\ICsvService.cs" />
     <Compile Include="Services\ExportData\IExportDataService.cs" />
+    <Compile Include="Services\Keyboard\IKeyboardService.cs" />
     <Compile Include="Services\Sql\IStockRepository.cs" />
     <Compile Include="Services\Sql\SqliteRepository.cs" />
     <Compile Include="Services\Sql\StockRepository.cs" />
@@ -49,8 +50,9 @@
     <Compile Include="Commands\ConfirmScanCommand.cs" />
     <Compile Include="Commands\ConfirmQuantityCommand.cs" />
     <Compile Include="Commands\CorrectQuantityCommand.cs" />
-    <Compile Include="ViewModels\ExportDataCommand.cs" />
+    <Compile Include="Commands\ExportDataCommand.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
+    <Compile Include="Services\IContext.cs" />
     <Compile Include="ViewModels\MissingBarcodeViewModel.cs" />
     <Compile Include="ViewModels\ReadyToScanViewModel.cs" />
     <Compile Include="Commands\ScanCommand.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="ViewModels\ScanConfirmationViewModel.cs" />
     <Compile Include="Interfaces\StockIdParameter.cs" />
     <Compile Include="Commands\UpdateQuantityCommand.cs" />
+    <Compile Include="Commands\ShowKeyboardCommand.cs" />
     <Compile Include="_base\MCommand.cs" />
     <Compile Include="_base\MViewModel.cs" />
   </ItemGroup>

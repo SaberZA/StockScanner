@@ -27,5 +27,11 @@
             android:layout_height="wrap_content"
             local:MvxBind="Click ExportData"
             android:id="@+id/button1" />
+        <Button
+            android:text="Open Keyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click ShowKeyboard"
+            android:id="@+id/button2" />
     </LinearLayout>
 </LinearLayout>

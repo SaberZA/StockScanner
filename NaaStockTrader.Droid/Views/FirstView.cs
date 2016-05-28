@@ -1,6 +1,7 @@
 using Android.App;
 using Android.OS;
 using MvvmCross.Droid.Views;
+using NaaStockScanner.Core.ViewModels;
 
 namespace NaaStockScanner.Droid.Views
 {
@@ -15,12 +16,13 @@ namespace NaaStockScanner.Droid.Views
     }
 
     [Activity(Label = "View for ReadyToScanViewModel")]
-    public class ReadyToScanView : MvxActivity
+    public class ReadyToScanView : MvxActivity<ReadyToScanViewModel>
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.ReadyToScanView);
+            ViewModel.Context = this;
         }
     }
 

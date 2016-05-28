@@ -10,5 +10,6 @@ namespace NaaStockTrader.Core.Services.ExportData
     public interface IExportDataService
     {
         void SaveCsvToDevice(List<StockItem> stockItems);
+        //void SaveXlsxToDevice(List<StockItem> stockItems, string sheetName);
     }
 }
