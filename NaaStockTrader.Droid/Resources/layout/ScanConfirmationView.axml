@@ -41,6 +41,27 @@
             local:MvxBind="Text StockDescription"
             android:textSize="45dp" />
     </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout7"
+        android:layout_marginBottom="26.0dp"
+        android:gravity="center">
+        <TextView
+            android:text="Price: "
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView4"
+            android:textSize="30dp" />
+        <TextView
+            android:text="PriceAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView5"
+            local:MvxBind="Text StockPrice"
+            android:textSize="30dp" />
+    </LinearLayout>
     <TextView
         android:text="Is this correct?"
         android:layout_width="match_parent"

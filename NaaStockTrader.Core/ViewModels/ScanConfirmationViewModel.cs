@@ -63,6 +63,7 @@ namespace NaaStockScanner.Core.ViewModels
             {
                 _currentStockItem = value;
                 StockDescription = _currentStockItem.StockDescription;
+                StockPrice = _currentStockItem.StockPrice;
             }
         }
 
@@ -76,6 +77,19 @@ namespace NaaStockScanner.Core.ViewModels
             set
             {
                 SetProperty(ref _stockDescription, value);
+            }
+        }
+
+        private string _stockPrice;
+        public string StockPrice
+        {
+            get
+            {
+                return _stockPrice;
+            }
+            set
+            {
+                SetProperty(ref _stockPrice, value);
             }
         }
 
