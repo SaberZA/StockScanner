@@ -12,6 +12,12 @@ namespace NaaStockScanner.Core.Services.Sql
         public StockRepository(ISQLiteConnection sqLiteConnection) : base(sqLiteConnection)
         {
             CreateTable();
+            CreateStockIndexes(sqLiteConnection);
+        }
+
+        private void CreateStockIndexes(ISQLiteConnection sqLiteConnection)
+        {
+            var result = sqLiteConnection.GetConnection().Execute("CREATE INDEX IF NOT EXISTS IdxStockCodeBarCode ON StockItem(StockCode, BarCode);");
         }
 
         public int CreateTable()

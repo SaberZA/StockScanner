@@ -34,7 +34,6 @@ namespace NaaStockTrader.Core.Commands
 
         public async override void Execute(object parameter)
         {
-            //scanConfirmationViewModel.StockId = parameter.StockId;
             spinnerService.ShowSpinner("Scanning Stock Item...");
             await Task.Run(() =>
             {
@@ -42,11 +41,14 @@ namespace NaaStockTrader.Core.Commands
                 {
                     //var allStockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockQuantity, DateUpdated from StockItem");
                     //Java.Lang.Thread.Sleep(2000);
-                    var stockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockPrice, StockQuantity, DateUpdated from StockItem where StockCode = ? OR BarCode = ?", scanConfirmationViewModel.StockId, scanConfirmationViewModel.StockId);
-
+                    var beforeQuery = DateTime.Now;
+                    var stockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockPrice, StockQuantity, DateUpdated from StockItem where StockCode = ? OR BarCode = ?", scanConfirmationViewModel.StockId.ToUpper(), scanConfirmationViewModel.StockId.ToUpper());
+                    var afterQuery = (DateTime.Now - beforeQuery).TotalMilliseconds;
+                    Debug.WriteLine("QueryTime: " + afterQuery);
                     if (stockItems.Any())
                     {
                         scanConfirmationViewModel.CurrentStockItem = stockItems.First();
+                        //scanConfirmationViewModel.StockDescription = afterQuery.ToString();
                         //scanConfirmationViewModel.StockDescription = scanConfirmationViewModel.CurrentStockItem.StockDescription;
                     }
                     else

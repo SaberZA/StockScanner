@@ -26,7 +26,7 @@ namespace NaaStockScanner.Droid
         public Setup(Context applicationContext) 
             : base(applicationContext)
         {
-            var stream = applicationContext.Assets.Open("Stock20160525.csv");
+            var stream = applicationContext.Assets.Open("Stock20160530.csv");
             
             using (StreamReader sr = new StreamReader(stream))
             {
@@ -50,13 +50,16 @@ namespace NaaStockScanner.Droid
             
             stockRepository.SeedStockItems(csvService.GetRecords());
 
+            Mvx.RegisterSingleton<IStockRepository>(stockRepository);
+
             Mvx.RegisterType<IKeyboardService>(() => new DroidKeyboardService());
             Mvx.RegisterType<IExportDataService>(() => _exportDataService);
             Mvx.RegisterType<ICsvService>(() => new CoreCsvService(stockContent));
-            Mvx.RegisterType<ISQLiteConnection>(() => sqLiteConnectionAndroid);
-            Mvx.RegisterType<IStockRepository>(() => stockRepository);
+            Mvx.RegisterType<ISQLiteConnection>(() => sqLiteConnectionAndroid);            
             Mvx.RegisterType<ISpinner>(() => new DroidSpinnerService());
             Mvx.RegisterType<IDialogService>(() => new AndroidDialogService());
+
+            
         }
 
         private SQLiteConnectionAndroid CreateSQLiteConnection()
