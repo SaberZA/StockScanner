@@ -41,6 +41,11 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AndHUD, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\AndHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
@@ -100,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DebugTrace.cs" />
+    <Compile Include="Services\Dialog\DroidDialogService.cs" />
     <Compile Include="Services\DroidDataExportService.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -107,11 +113,13 @@
     <Compile Include="Services\Csv\CsvContentService.cs" />
     <Compile Include="Services\Csv\ICsvContentService.cs" />
     <Compile Include="Services\KeyboardService\DroidKeyboardService.cs" />
+    <Compile Include="Services\Spinner\DroidSpinnerService.cs" />
     <Compile Include="Services\Sqlite\SqLiteConnectionAndroid.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="ValueConverters\NumberValueConverter.cs" />
     <Compile Include="Views\FirstView.cs" />
+    <Compile Include="_base\MActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Stock.csv" />
@@ -147,6 +155,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\SplashStyle.xml" />
     <AndroidResource Include="Resources\drawable\splash.png" />
+    <Content Include="lib\AndHUD.dll" />
     <Content Include="lib\PCLStorage.Abstractions.dll" />
     <Content Include="lib\PCLStorage.dll" />
     <Content Include="lib\SQLite.Net.dll" />

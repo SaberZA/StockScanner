@@ -16,6 +16,15 @@ namespace NaaStockScanner.Core
 
     public abstract class MViewModel : MvxViewModel, IMViewModel
     {
+        public IMvxCommand PostStartCommand { get; set; }
+        public IMvxCommand PreStartCommand { get; set; }
+
+        protected MViewModel()
+        {
+            PreStartCommand = new MvxCommand(() => { });
+            PostStartCommand = new MvxCommand(() => { });
+        }
+
         public override void RaisePropertyChanged(PropertyChangedEventArgs changedArgs)
         {
             base.RaisePropertyChanged(changedArgs);

@@ -1,6 +1,9 @@
 ﻿using System;
 using NaaStockScanner.Core._base;
 using NaaStockScanner.Core.Services.Sql;
+using NaaStockTrader.Core.Services.Spinner;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace NaaStockScanner.Core.ViewModels
 {
@@ -8,11 +11,16 @@ namespace NaaStockScanner.Core.ViewModels
     {
         private CaptureStockQuantityViewModel captureStockQuantityViewModel;
         private IStockRepository stockRepository;
-        
-        public ConfirmQuantityCommand(CaptureStockQuantityViewModel captureStockQuantityViewModel, IStockRepository stockRepository)
+        private ISpinner _spinnerService;
+
+        public ConfirmQuantityCommand(
+            CaptureStockQuantityViewModel captureStockQuantityViewModel, 
+            IStockRepository stockRepository,
+            ISpinner spinnerService)
         {
             this.captureStockQuantityViewModel = captureStockQuantityViewModel;
             this.stockRepository = stockRepository;
+            _spinnerService = spinnerService;
         }
 
         public override bool CanExecute()
@@ -20,12 +28,28 @@ namespace NaaStockScanner.Core.ViewModels
             return true;
         }
 
-        public override void Execute(object parameter)
+        public async override void Execute(object parameter)
         {
-            stockRepository.Execute("Update StockItem Set StockQuantity = ? Where StockCode = ? Or BarCode = ?", 
-                Int32.Parse(string.IsNullOrEmpty(captureStockQuantityViewModel.Quantity) ? "0" : captureStockQuantityViewModel.Quantity), 
-                captureStockQuantityViewModel.StockId, 
-                captureStockQuantityViewModel.StockId);
+
+            _spinnerService.ShowSpinner("Saving Quantity");
+            await Task.Run(() =>
+            {
+                try
+                {
+                    stockRepository.Execute("Update StockItem Set StockQuantity = ? Where StockCode = ? Or BarCode = ?",
+                    Int32.Parse(string.IsNullOrEmpty(captureStockQuantityViewModel.Quantity) ? "0" : captureStockQuantityViewModel.Quantity),
+                    captureStockQuantityViewModel.StockId,
+                    captureStockQuantityViewModel.StockId);
+                }
+                catch(Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    _spinnerService.HideSpinner();
+                    throw ex;
+                }
+                _spinnerService.HideSpinner();
+            });
+                
 
             captureStockQuantityViewModel.ShowViewModel<ReadyToScanViewModel>(null);
         }

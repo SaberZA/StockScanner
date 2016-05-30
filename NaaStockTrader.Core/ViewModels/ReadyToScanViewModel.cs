@@ -3,8 +3,10 @@ using NaaStockScanner.Core;
 using NaaStockScanner.Core._base;
 using NaaStockScanner.Core.Interfaces;
 using NaaStockScanner.Core.Services.Sql;
+using NaaStockTrader.Core.Services.Dialog;
 using NaaStockTrader.Core.Services.ExportData;
 using NaaStockTrader.Core.Services.Keyboard;
+using NaaStockTrader.Core.Services.Spinner;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +18,18 @@ namespace NaaStockScanner.Core.ViewModels
 {
     public class ReadyToScanViewModel : MViewModel, IContext
     {
-        public ReadyToScanViewModel(IExportDataService exportDataService, IStockRepository stockRepository, IKeyboardService keyboardService)
+        public ReadyToScanViewModel(
+            IExportDataService exportDataService, 
+            IStockRepository stockRepository, 
+            IKeyboardService keyboardService,
+            ISpinner spinnerService,
+            IDialogService dialogService)
         {
-            ScanComplete = new ScanCompleteCommand(this);
-            ExportData = new ExportDataCommand(this, exportDataService, stockRepository);
+            ScanComplete = new ScanCompleteCommand(this, spinnerService);
+            ExportData = new ExportDataCommand(this, exportDataService, stockRepository, spinnerService, dialogService);
             ShowKeyboard = new ShowKeyboardCommand(this, keyboardService);
+            _spinnerService = spinnerService;
+            _dialogService = dialogService;
         }
 
         public void Init()
@@ -59,36 +68,24 @@ namespace NaaStockScanner.Core.ViewModels
         public IMCommand ExportData { get; set; }
         public IMCommand ShowKeyboard { get; set; }
 
+        
+        private ISpinner _spinnerService;
+
+        private dynamic _context;
+        private IDialogService _dialogService;
+
         public dynamic Context
         {
-            get; set;
+            get
+            {
+                return _context;
+            }
+            set
+            {
+                _context = value;
+                _spinnerService.SetContext(value);
+                _dialogService.Context = value;
+            }
         }
-    }   
-
-
-    //internal delegate void TimerCallback(object state);
-
-    //internal sealed class Timer : CancellationTokenSource, IDisposable
-    //{
-    //    public Timer(TimerCallback callback, object state, int dueTime, int period)
-    //    {
-    //        Task.Delay(dueTime, Token).ContinueWith(async (t, s) =>
-    //        {
-    //            var tuple = (Tuple<TimerCallback, object>)s;
-
-    //            while (true)
-    //            {
-    //                if (IsCancellationRequested)
-    //                    break;
-    //                Task.Run(() => tuple.Item1(tuple.Item2));
-    //                await Task.Delay(period);
-    //            }
-
-    //        }, Tuple.Create(callback, state), CancellationToken.None,
-    //            TaskContinuationOptions.ExecuteSynchronously | TaskContinuationOptions.OnlyOnRanToCompletion,
-    //            TaskScheduler.Default);
-    //    }
-
-    //    public new void Dispose() { base.Cancel(); }
-    //}
+    }       
 }

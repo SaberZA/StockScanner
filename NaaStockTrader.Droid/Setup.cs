@@ -11,6 +11,10 @@ using NaaStockScanner.Core.Interfaces;
 using NaaStockTrader.Core.Services.ExportData;
 using NaaStockTrader.Core.Services.Keyboard;
 using NaaStockScanner.Droid.Services.KeyboardService;
+using NaaStockTrader.Core.Services.Spinner;
+using NaaStockScanner.Droid.Services.Spinner;
+using NaaStockTrader.Core.Services.Dialog;
+using NaaStockTrader.Droid.Services.Dialog;
 
 namespace NaaStockScanner.Droid
 {
@@ -50,7 +54,9 @@ namespace NaaStockScanner.Droid
             Mvx.RegisterType<IExportDataService>(() => _exportDataService);
             Mvx.RegisterType<ICsvService>(() => new CoreCsvService(stockContent));
             Mvx.RegisterType<ISQLiteConnection>(() => sqLiteConnectionAndroid);
-            Mvx.RegisterType<IStockRepository>(() => stockRepository);            
+            Mvx.RegisterType<IStockRepository>(() => stockRepository);
+            Mvx.RegisterType<ISpinner>(() => new DroidSpinnerService());
+            Mvx.RegisterType<IDialogService>(() => new AndroidDialogService());
         }
 
         private SQLiteConnectionAndroid CreateSQLiteConnection()
