@@ -10,13 +10,13 @@ namespace NaaStockScanner.Core.Interfaces
 {
     public class StockItem : ISqlTable
     {
-        [PrimaryKey, MaxLength(200)]
+        [PrimaryKey]
         public string StockCode { get; set; }
 
-        [MaxLength(200)]
+        //[MaxLength(500)]
         public string BarCode { get; set; }
 
-        [MaxLength(200)]
+        //[MaxLength(500)]
         public string StockDescription { get; set; }
 
         public int StockQuantity { get; set; }

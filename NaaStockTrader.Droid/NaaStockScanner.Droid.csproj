@@ -125,6 +125,7 @@
     <AndroidAsset Include="Assets\Stock.csv" />
     <AndroidAsset Include="Assets\Stock20160525.csv" />
     <AndroidAsset Include="Assets\Stock20160530.csv" />
+    <AndroidAsset Include="Assets\Stock20160827.csv" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />

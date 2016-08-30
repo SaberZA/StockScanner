@@ -62,7 +62,12 @@ namespace NaaStockScanner.Core.Services.Sql
                 }
             }
 
-            GetConnection().InsertAll(stockItemsToAdd);
+            //GetConnection().InsertAll(stockItemsToAdd);
+            foreach (var stockItem in stockItemsToAdd)
+            {
+                var insertedRows = GetConnection().InsertOrReplace(stockItem);
+
+            }
 
             //if (!stockItemsInDb.Any())
             //{
