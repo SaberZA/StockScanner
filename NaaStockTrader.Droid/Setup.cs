@@ -1,3 +1,4 @@
+using System;
 using Android.Content;
 using MvvmCross.Droid.Platform;
 using MvvmCross.Core.ViewModels;
@@ -7,6 +8,7 @@ using MvvmCross.Platform;
 using NaaStockScanner.Core.Services.Sql;
 using NaaStockScanner.Core.Services.Csv;
 using System.IO;
+using Android.Content.Res;
 using NaaStockScanner.Core.Interfaces;
 using NaaStockTrader.Core.Services.ExportData;
 using NaaStockTrader.Core.Services.Keyboard;
@@ -15,6 +17,10 @@ using NaaStockTrader.Core.Services.Spinner;
 using NaaStockScanner.Droid.Services.Spinner;
 using NaaStockTrader.Core.Services.Dialog;
 using NaaStockTrader.Droid.Services.Dialog;
+using PCLStorage;
+using SQLite.Net;
+using SQLite.Net.Platform.XamarinAndroid;
+using FileAccess = System.IO.FileAccess;
 
 namespace NaaStockScanner.Droid
 {
@@ -26,13 +32,28 @@ namespace NaaStockScanner.Droid
         public Setup(Context applicationContext) 
             : base(applicationContext)
         {
-            var stream = applicationContext.Assets.Open("Stock20160827.csv");
-            
-            using (StreamReader sr = new StreamReader(stream))
+            var dbStream = applicationContext.Assets.Open("27Aug2016.sqlite");
+            var fileName = "naastock-27Aug2016.sqlite";
+            var localStorage = FileSystem.Current.LocalStorage;
+            var documentsPath = localStorage.Path;
+            var databasePath = Path.Combine(documentsPath, fileName);
+
+            if (!File.Exists(databasePath))
             {
-                stockContent = sr.ReadToEnd();
+                var writeStream = new FileStream(databasePath, FileMode.OpenOrCreate, FileAccess.Write);
+                ReadWriteStream(dbStream, writeStream);
             }
+
+            //var platform = new SQLitePlatformAndroid();
+            //var connection = new SQLiteConnection(platform, databasePath);
+
+
+            //using (StreamReader sr = new StreamReader(stream))
+            //{
+            //    stockContent = sr.ReadToEnd();
+            //}
             _exportDataService = new DroidDataExportService(applicationContext);
+            
         }
 
         protected override IMvxApplication CreateApp()
@@ -45,21 +66,37 @@ namespace NaaStockScanner.Droid
             base.InitializeIoC();
             SQLiteConnectionAndroid sqLiteConnectionAndroid = CreateSQLiteConnection();
 
-            var csvService = new CoreCsvService(stockContent);
+            //var csvService = new CoreCsvService(stockContent);
             var stockRepository = new StockRepository(sqLiteConnectionAndroid);
-            
-            stockRepository.SeedStockItems(csvService.GetRecords());
+            //stockRepository.SeedStockItems(csvService.GetRecords());
 
             Mvx.RegisterSingleton<IStockRepository>(stockRepository);
 
             Mvx.RegisterType<IKeyboardService>(() => new DroidKeyboardService());
             Mvx.RegisterType<IExportDataService>(() => _exportDataService);
-            Mvx.RegisterType<ICsvService>(() => new CoreCsvService(stockContent));
+            //Mvx.RegisterType<ICsvService>(() => new CoreCsvService(stockContent));
             Mvx.RegisterType<ISQLiteConnection>(() => sqLiteConnectionAndroid);            
             Mvx.RegisterType<ISpinner>(() => new DroidSpinnerService());
             Mvx.RegisterType<IDialogService>(() => new AndroidDialogService());
 
             
+        }
+
+        // readStream is the stream you need to read
+        // writeStream is the stream you want to write to
+        private void ReadWriteStream(Stream readStream, Stream writeStream)
+        {
+            int Length = 256;
+            Byte[] buffer = new Byte[Length];
+            int bytesRead = readStream.Read(buffer, 0, Length);
+            // write the required bytes
+            while (bytesRead > 0)
+            {
+                writeStream.Write(buffer, 0, bytesRead);
+                bytesRead = readStream.Read(buffer, 0, Length);
+            }
+            readStream.Close();
+            writeStream.Close();
         }
 
         private SQLiteConnectionAndroid CreateSQLiteConnection()
