@@ -19,16 +19,18 @@ namespace NaaStockScanner.Droid.Services.Sqlite
 {
     public class SQLiteConnectionAndroid : ISQLiteConnection
     {
-        public SQLiteConnectionAndroid()
+        private readonly string _dbPath;
+
+        public SQLiteConnectionAndroid(string dbPath)
         {
+            _dbPath = dbPath;
         }
 
         public SQLiteConnection GetConnection()
         {
-            var fileName = "naastock.sqlite";
             var localStorage = FileSystem.Current.LocalStorage;
             var documentsPath = localStorage.Path;
-            var path = Path.Combine(documentsPath, fileName);
+            var path = Path.Combine(documentsPath, _dbPath);
 
             var platform = new SQLitePlatformAndroid();
             var connection = new SQLiteConnection(platform, path);

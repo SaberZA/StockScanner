@@ -28,15 +28,16 @@ namespace NaaStockScanner.Droid
     {
         private string stockContent;
         private DroidDataExportService _exportDataService;
+        private string _dbFileName = "naastock-17Nov2016.sqlite";
+
 
         public Setup(Context applicationContext) 
             : base(applicationContext)
         {
-            var dbStream = applicationContext.Assets.Open("27Aug2016.sqlite");
-            var fileName = "naastock-27Aug2016.sqlite";
+            var dbStream = applicationContext.Assets.Open("17Nov2016.sqlite");
             var localStorage = FileSystem.Current.LocalStorage;
             var documentsPath = localStorage.Path;
-            var databasePath = Path.Combine(documentsPath, fileName);
+            var databasePath = Path.Combine(documentsPath, _dbFileName);
 
             if (!File.Exists(databasePath))
             {
@@ -64,7 +65,7 @@ namespace NaaStockScanner.Droid
         protected override void InitializeIoC()
         {
             base.InitializeIoC();
-            SQLiteConnectionAndroid sqLiteConnectionAndroid = CreateSQLiteConnection();
+            SQLiteConnectionAndroid sqLiteConnectionAndroid = CreateSQLiteConnection(_dbFileName);
 
             //var csvService = new CoreCsvService(stockContent);
             var stockRepository = new StockRepository(sqLiteConnectionAndroid);
@@ -99,9 +100,9 @@ namespace NaaStockScanner.Droid
             writeStream.Close();
         }
 
-        private SQLiteConnectionAndroid CreateSQLiteConnection()
+        private SQLiteConnectionAndroid CreateSQLiteConnection(string dbFileName)
         {
-            return new SQLiteConnectionAndroid();
+            return new SQLiteConnectionAndroid(dbFileName);
         }
 
         protected override IMvxTrace CreateDebugTrace()

@@ -12,6 +12,7 @@ namespace NaaStockScanner.DbConvert
 {
     class Program
     {
+        //Build Configuration must be set to x86 or x64 for SQLite
         static void Main(string[] args)
         {
             var sourceDbName = "27Aug2016";

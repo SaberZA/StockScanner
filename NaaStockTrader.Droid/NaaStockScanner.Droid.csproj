@@ -146,7 +146,7 @@
     <AndroidAsset Include="Assets\Stock20160525.csv" />
     <AndroidAsset Include="Assets\Stock20160530.csv" />
     <AndroidAsset Include="Assets\Stock20160827.csv" />
-    <AndroidAsset Include="Assets\27Aug2016.sqlite" />
+    <AndroidAsset Include="Assets\17Nov2016.sqlite" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
