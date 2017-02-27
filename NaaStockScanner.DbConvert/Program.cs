@@ -15,11 +15,11 @@ namespace NaaStockScanner.DbConvert
         //Build Configuration must be set to x86 or x64 for SQLite
         static void Main(string[] args)
         {
-            var sourceDbName = "27Aug2016";
-            var targetDbName = sourceDbName;
-
+            
+            var sourceDbName = "27Feb2017";
+            var dbExtension = "accdb";
             IEnumerable<StockItem> results;
-            using (var conn = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={sourceDbName}.mdb"))
+            using (var conn = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={sourceDbName}.{dbExtension}"))
             {
                 conn.Open();
                 results = conn.Query<StockItem>(
@@ -27,6 +27,13 @@ namespace NaaStockScanner.DbConvert
                     );
                 conn.Close();
             }
+
+
+
+
+
+
+            var targetDbName = sourceDbName+"-test";            
 
             using (var conn = new SQLiteConnection($"{targetDbName}.sqlite"))
             {

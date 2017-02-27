@@ -2,7 +2,7 @@
 
 $MsBuildPath = "C:\Program Files (x86)\MSBuild\14.0\Bin\msbuild.exe"
 $ProjectPath = ".\NaaStockTrader.Droid\NaaStockScanner.Droid.csproj"
-$Java6JarSigner = 'C:\Program Files\Java\jdk1.6.0_45\bin\jarsigner.exe'
+$Java6JarSigner = 'C:\Program Files (x86)\Java\jdk1.7.0_55\bin\jarsigner.exe'
 $AndroidSdkZipAlign = 'C:\Program Files (x86)\Android\android-sdk\build-tools\23.0.1\zipalign.exe'
 $KeyStore = '.\naastockscanner.keystore'
 $SignedApkOutputPath = 'C:\Published\NaaStockScanner.apk'

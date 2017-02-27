@@ -36,10 +36,10 @@ namespace NaaStockScanner.Core.ViewModels
             {
                 try
                 {
-                    stockRepository.Execute("Update StockItem Set StockQuantity = ? Where StockCode = ? Or BarCode = ?",
+                    stockRepository.Execute("Update StockItem Set StockQuantity = ? Where upper(StockCode) = ? Or upper(BarCode) = ?",
                     Int32.Parse(string.IsNullOrEmpty(captureStockQuantityViewModel.Quantity) ? "0" : captureStockQuantityViewModel.Quantity),
-                    captureStockQuantityViewModel.StockId,
-                    captureStockQuantityViewModel.StockId);
+                    captureStockQuantityViewModel.StockId.ToUpper(),
+                    captureStockQuantityViewModel.StockId.ToUpper());
                 }
                 catch(Exception ex)
                 {

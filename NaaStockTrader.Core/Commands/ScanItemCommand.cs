@@ -42,7 +42,7 @@ namespace NaaStockTrader.Core.Commands
                     //var allStockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockQuantity, DateUpdated from StockItem");
                     //Java.Lang.Thread.Sleep(2000);
                     var beforeQuery = DateTime.Now;
-                    var stockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockPrice, StockQuantity, DateUpdated from StockItem where StockCode = ? OR BarCode = ?", scanConfirmationViewModel.StockId.ToUpper(), scanConfirmationViewModel.StockId.ToUpper());
+                    var stockItems = _stockRepository.Query("select StockCode, BarCode, StockDescription, StockPrice, StockQuantity, DateUpdated from StockItem where upper(StockCode) = ? OR upper(BarCode) = ?", scanConfirmationViewModel.StockId.ToUpper(), scanConfirmationViewModel.StockId.ToUpper());
                     var afterQuery = (DateTime.Now - beforeQuery).TotalMilliseconds;
                     Debug.WriteLine("QueryTime: " + afterQuery);
                     if (stockItems.Any())

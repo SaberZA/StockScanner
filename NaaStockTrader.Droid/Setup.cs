@@ -28,13 +28,13 @@ namespace NaaStockScanner.Droid
     {
         private string stockContent;
         private DroidDataExportService _exportDataService;
-        private string _dbFileName = "naastock-17Nov2016.sqlite";
+        private string _dbFileName = "27Feb2017.sqlite";
 
 
         public Setup(Context applicationContext) 
             : base(applicationContext)
         {
-            var dbStream = applicationContext.Assets.Open("17Nov2016.sqlite");
+            var dbStream = applicationContext.Assets.Open(_dbFileName);
             var localStorage = FileSystem.Current.LocalStorage;
             var documentsPath = localStorage.Path;
             var databasePath = Path.Combine(documentsPath, _dbFileName);

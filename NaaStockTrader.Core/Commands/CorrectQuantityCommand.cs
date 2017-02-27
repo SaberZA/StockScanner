@@ -23,7 +23,8 @@ namespace NaaStockScanner.Core.ViewModels
             {
                 return;
             }
-            captureStockQuantityViewModel.Quantity = captureStockQuantityViewModel.Quantity.Substring(0, captureStockQuantityViewModel.Quantity.Length - 1);
+            var stockQuantityString = captureStockQuantityViewModel.Quantity.Substring(0, captureStockQuantityViewModel.Quantity.Length - 1);
+            captureStockQuantityViewModel.Quantity = stockQuantityString;
         }
     }
 }
