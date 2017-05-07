@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-msbuild": "^0.4.7"
+  },
+  "name": "stockerscanner",
+  "description": "Stock Scanner (Xamarin)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaberZA/StockScanner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaberZA/StockScanner/issues"
+  },
+  "homepage": "https://github.com/SaberZA/StockScanner#readme"
+}
