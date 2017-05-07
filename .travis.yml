@@ -1,0 +1,8 @@
+language: objective-c
+osx_image: xcode8.3
+
+before_install:
+ - brew install mono
+
+install:
+ - xbuild ./NaaStockTrader.Droid/NaaStockScanner.Droid.csproj
