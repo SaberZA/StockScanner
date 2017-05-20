@@ -28,7 +28,7 @@ namespace NaaStockScanner.Droid
     {
         private string stockContent;
         private DroidDataExportService _exportDataService;
-        private string _dbFileName = "27Feb2017.sqlite";
+        private string _dbFileName = "07May2017.sqlite";
 
 
         public Setup(Context applicationContext) 

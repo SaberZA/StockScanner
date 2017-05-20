@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Dapper;
 using NaaStockScanner.Core.Interfaces;
 using SQLite;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace NaaStockScanner.DbConvert
 {
@@ -16,24 +18,22 @@ namespace NaaStockScanner.DbConvert
         static void Main(string[] args)
         {
             
-            var sourceDbName = "27Feb2017";
+            var sourceDbName = "07May2017";
             var dbExtension = "accdb";
             IEnumerable<StockItem> results;
-            using (var conn = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={sourceDbName}.{dbExtension}"))
-            {
-                conn.Open();
-                results = conn.Query<StockItem>(
-                    "select * from StockItem"
-                    );
-                conn.Close();
-            }
+            //using (var conn = new OleDbConnection($"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={sourceDbName}.{dbExtension}"))
+            //{
+            //    conn.Open();
+            //    results = conn.Query<StockItem>(
+            //        "select * from StockItem"
+            //        );
+            //    conn.Close();
+            //}
 
-
-
-
-
-
-            var targetDbName = sourceDbName+"-test";            
+            var jsonStringArray = File.ReadAllText("stock-07May2017.json");
+            results = JsonConvert.DeserializeObject<IEnumerable<StockItem>>(jsonStringArray);
+            
+            var targetDbName = sourceDbName + "-test";
 
             using (var conn = new SQLiteConnection($"{targetDbName}.sqlite"))
             {

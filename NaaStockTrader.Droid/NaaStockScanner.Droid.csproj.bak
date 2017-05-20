@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,16 +39,6 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <BundleAssemblies>False</BundleAssemblies>
-    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
-    <Debugger>.Net (Xamarin)</Debugger>
-    <AotAssemblies>False</AotAssemblies>
-    <EnableLLVM>False</EnableLLVM>
-    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
-    <EnableProguard>False</EnableProguard>
-    <DebugSymbols>False</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -152,19 +142,17 @@
     <Compile Include="_base\MActivity.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\27Aug2016.sqlite.OLD" />
-    <AndroidAsset Include="Assets\27Feb2017.sqlite" />
-    <AndroidAsset Include="Assets\AboutAssets.txt" />
-    <AndroidAsset Include="Assets\Stock Listing with Barcodes and SP 20160530.xls" />
-    <AndroidAsset Include="Assets\Stock Listing with Barcodes and SP 20160827.xls" />
     <AndroidAsset Include="Assets\Stock.csv" />
     <AndroidAsset Include="Assets\Stock20160525.csv" />
     <AndroidAsset Include="Assets\Stock20160530.csv" />
     <AndroidAsset Include="Assets\Stock20160827.csv" />
-    <AndroidAsset Include="Assets\07May2017.sqlite" />
+    <AndroidAsset Include="Assets\17Nov2016.sqlite" />
+    <AndroidAsset Include="Assets\20170214-db.sqlite" />
+    <AndroidAsset Include="Assets\27Feb2017.sqlite" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\SplashScreen.axml" />
     <AndroidResource Include="Resources\layout\FirstView.axml" />
     <AndroidResource Include="Resources\layout\ReadyToScanView.axml">
@@ -208,10 +196,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Raw\" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\17Nov2016.sqlite" />
-    <AndroidAsset Include="Assets\20170214-db.sqlite" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
