@@ -1,2 +1,2 @@
-curl -OutFile stock.json http://localhost:1337/downloadLatest
+curl -OutFile stock.json https://serene-spire-69580.herokuapp.com/downloadLatest
 Write-Output "$(build.binariesdirectory)/$(BuildConfiguration)"
